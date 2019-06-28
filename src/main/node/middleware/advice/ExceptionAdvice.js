@@ -1,4 +1,4 @@
-const errorBuilder = require("leap-core").ErrorBuilder;
+const errorBuilder = require("../../error/WebErrorBuilder");
 const errorCode = require("../../error/ErrorCode");
 
 module.exports = {
@@ -10,7 +10,7 @@ module.exports = {
         if (err.error !== undefined && err.error.errorCode !== undefined) {
             exception = err;
         } else {
-            exception = errorBuilder.build("ERROR_MIDDLEWARE", "Unexpected error", errorCode.INTERNAL_SERVER_ERROR, err);
+            exception = errorBuilder.build("ERROR_MIDDLEWARE", "Unexpected error", err, errorCode.INTERNAL_SERVER_ERROR);
         }
 
         res.locals.nanoContext.response = {
@@ -19,6 +19,5 @@ module.exports = {
         };
 
         next();
-
     }
 };
