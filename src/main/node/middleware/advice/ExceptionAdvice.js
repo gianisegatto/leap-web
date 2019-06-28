@@ -14,7 +14,7 @@ module.exports = {
         }
 
         res.locals.nanoContext.response = {
-            statusCode: exception.errorCode,
+            statusCode: exception.code,
             body: exception
         };
 
