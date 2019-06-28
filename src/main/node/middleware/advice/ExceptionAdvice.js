@@ -7,14 +7,14 @@ module.exports = {
 
         let exception;
 
-        if (err.error !== undefined && err.error.errorCode !== undefined) {
+        if (err.type !== undefined && err.errorCode !== undefined) {
             exception = err;
         } else {
             exception = errorBuilder.build("ERROR_MIDDLEWARE", "Unexpected error", err, errorCode.INTERNAL_SERVER_ERROR);
         }
 
         res.locals.nanoContext.response = {
-            statusCode: exception.error.errorCode,
+            statusCode: exception.errorCode,
             body: exception
         };
 
