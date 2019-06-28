@@ -1,5 +1,5 @@
 const joi = require("@hapi/joi");
-const exceptionBuilder = require("../../error/ExceptionBuilder");
+const exceptionBuilder = require("../../error/WebErrorBuilder");
 const errorCode = require("../../error/ErrorCode");
 
 class RequestValidator {
@@ -19,7 +19,7 @@ class RequestValidator {
             const result = joi.validate(req, joi.object().keys(this.schema), this.options);
 
             if (result.error) {
-                const exception = exceptionBuilder.build("REQUEST_VALIDATOR", "Bad request", errorCode.BAD_REQUEST, result.error.details.map(detail => detail.message));
+                const exception = exceptionBuilder.build("REQUEST_VALIDATOR", "Bad request", result.error.details.map(detail => detail.message), errorCode.BAD_REQUEST);
                 return next(exception);
             } else {
                 return next();
