@@ -1,4 +1,4 @@
-const joi = require("joi");
+const joi = require("@hapi/joi");
 const exceptionBuilder = require("../../error/ExceptionBuilder");
 const errorCode = require("../../error/ErrorCode");
 
