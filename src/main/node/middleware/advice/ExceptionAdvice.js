@@ -1,4 +1,4 @@
-const errorBuilder = require("../../error/ExceptionBuilder");
+const errorBuilder = require("leap-core").ErrorBuilder;
 const errorCode = require("../../error/ErrorCode");
 
 module.exports = {
