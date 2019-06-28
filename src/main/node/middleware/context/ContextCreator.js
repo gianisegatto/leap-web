@@ -1,7 +1,7 @@
 class ContextCreator {
 
     create(req, res, next) {
-        res.locals.nanoContext = {
+        res.locals.leapContext = {
             startTime: new Date()
         };
         next();

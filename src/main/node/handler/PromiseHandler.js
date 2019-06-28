@@ -10,14 +10,7 @@ class PromiseHandler {
      */
     static handle(promise, res, next, okHttpStatus) {
         promise
-            .then(result => {
-                const response = {
-                    statusCode: okHttpStatus ? okHttpStatus : 200,
-                    body: result
-                };
-                res.locals.nanoContext.response = response;
-                return next();
-            })
+            .then(result => res.status(okHttpStatus ? okHttpStatus : 200).send(result))
             .catch(exception => next(exception));
     }
 }

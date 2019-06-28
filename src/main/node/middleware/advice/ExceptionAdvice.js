@@ -13,12 +13,7 @@ class ExceptionAdvice {
             exception = errorBuilder.build("ERROR_MIDDLEWARE", "Unexpected error", err, errorCode.INTERNAL_SERVER_ERROR);
         }
 
-        res.locals.nanoContext.response = {
-            statusCode: exception.errorCode.code,
-            body: exception
-        };
-
-        next();
+        res.status(exception.errorCode.code).send(exception);
     }
 }
 
