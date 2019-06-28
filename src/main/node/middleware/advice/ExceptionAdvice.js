@@ -1,9 +1,9 @@
 const errorBuilder = require("../../error/WebErrorBuilder");
 const errorCode = require("../../error/ErrorCode");
 
-module.exports = {
+class ExceptionAdvice {
 
-    handleError: function (err, req, res, next) {
+    static handleError(err, req, res, next) {
 
         let exception;
 
@@ -14,10 +14,12 @@ module.exports = {
         }
 
         res.locals.nanoContext.response = {
-            statusCode: exception.code,
+            statusCode: exception.errorCode.code,
             body: exception
         };
 
         next();
     }
-};
+}
+
+module.exports = ExceptionAdvice;

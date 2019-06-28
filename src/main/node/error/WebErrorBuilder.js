@@ -5,7 +5,7 @@ class WebErroBuilder {
     static build(source, message, details, errorCode) {
         const error = ErrorBuilder.build(source, message, details);
         error.type = "WEB";
-        error.code = errorCode;
+        error.errorCode = errorCode;
         return error;
     }
 }
