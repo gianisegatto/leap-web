@@ -2,8 +2,6 @@ class Logger {
 
     static log(req, res, responseBody) {
 
-        console.log("Logger called");
-
         const leapContext = res.locals.leapContext;
         const elapsedTime = Date.now() - leapContext.startTime;
 
