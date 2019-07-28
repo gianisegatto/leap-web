@@ -1,7 +1,7 @@
 const ContextCreator = require("../middleware/context/ContextCreator");
 const bodyParser = require("body-parser");
 const exceptionAdvice = require("../middleware/advice/ExceptionAdvice");
-const Logger = require("../middleware/logger/Logger");
+const Logger = require("../logger/Logger");
 const ResponseDispatcher = require("../middleware/dispatcher/ResponseDispatcher");
 
 class AppBuilder {

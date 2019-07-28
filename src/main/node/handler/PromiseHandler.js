@@ -1,3 +1,5 @@
+const Logger = require("../logger/Logger");
+
 class PromiseHandler {
 
     /**
@@ -10,7 +12,10 @@ class PromiseHandler {
      */
     static handle(promise, res, next, okHttpStatus) {
         promise
-            .then(result => res.status(okHttpStatus ? okHttpStatus : 200).send(result))
+            .then(result => {
+                Logger.log(req, res, result);
+                res.status(okHttpStatus ? okHttpStatus : 200).send(result);
+            })
             .catch(exception => next(exception));
     }
 }
