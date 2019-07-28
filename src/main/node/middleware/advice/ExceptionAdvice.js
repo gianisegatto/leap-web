@@ -10,7 +10,7 @@ class ExceptionAdvice {
         if (err.type !== undefined && err.errorCode !== undefined) {
             exception = err;
         } else {
-            exception = errorBuilder.build("ERROR_MIDDLEWARE", "Unexpected error", err, errorCode.INTERNAL_SERVER_ERROR);
+            exception = errorBuilder.build("ERROR_MIDDLEWARE", "Unexpected error", errorCode.INTERNAL_SERVER_ERROR, err);
         }
 
         res.status(exception.errorCode.code).send(exception);
