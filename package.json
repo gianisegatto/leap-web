@@ -1,8 +1,8 @@
 {
-  "name": "leap-web",
+  "name": "leap-web-express",
   "version": "0.0.1",
   "description": "",
-  "homepage": "https://github.com/gianisegatto/leap-web",
+  "homepage": "https://github.com/gianisegatto/leap-web-express",
   "license": "UNLICENSED",
   "files": [
     "src/",
@@ -11,7 +11,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gianisegatto/leap-web"
+    "url": "https://github.com/gianisegatto/leap-web-express"
   },
   "dependencies": {
     "@hapi/joi": "^15.1.0",
