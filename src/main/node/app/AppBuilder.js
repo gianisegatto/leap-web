@@ -1,8 +1,6 @@
 const ContextCreator = require("../middleware/context/ContextCreator");
 const bodyParser = require("body-parser");
 const exceptionAdvice = require("../middleware/advice/ExceptionAdvice");
-const Logger = require("../logger/Logger");
-const ResponseDispatcher = require("../middleware/dispatcher/ResponseDispatcher");
 
 class AppBuilder {
 
@@ -25,10 +23,6 @@ class AppBuilder {
         this.routers.forEach(router => this.app.use(router));
 
         this.app.use(exceptionAdvice.handleError);
-
-        this.app.use(new Logger().log);
-
-        this.app.use(new ResponseDispatcher().dispatch);
 
         return this.app;
     }
