@@ -10,7 +10,7 @@ class PromiseHandler {
      * @param {next} callback if something wrong happens
      * @param {okHttpStatus} Success http status when the promise gives a good response
      */
-    static handle(promise, res, next, okHttpStatus) {
+    static handle(promise, req, res, next, okHttpStatus) {
         promise
             .then(result => {
                 Logger.log(req, res, result);
